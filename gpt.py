@@ -4,14 +4,13 @@ from flask import *
 import requests
 
 app = Flask(__name__)
-
-API_KEY = "OPENAI-APIKEY"
+app.secret_key = 'api_key'
 
 # チャットGPTに質問する関数
-def query_chatgpt(prompt):
+def query_chatgpt(prompt, apiKey):
     header = {
         "Content-Type" : "application/json",
-        "Authorization" : f"Bearer {API_KEY}",
+        "Authorization" : f"Bearer {apiKey}",
     }
 
     body = '''
@@ -28,13 +27,21 @@ def query_chatgpt(prompt):
 
 @app.route("/", methods=["GET"])
 def index():
-    return render_template("index.html")
+    return render_template("index.html",placeholder="OPENAIのAPIKEYを入れてください",value="登録")
+
+@app.route("/api", methods=["POST"])
+def api():
+    session["apiKey"] = request.form["apiKey"]
+    return render_template("index.html",placeholder=session["apiKey"],value="登録済")
 
 @app.route("/query", methods=["POST"])
 def query():
+    apiKey = session["apiKey"]
     prompt = request.form["prompt_text"]
-    ans = query_chatgpt(prompt)
+    ans = query_chatgpt(prompt, apiKey)
     return render_template("answer.html", answer=ans)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

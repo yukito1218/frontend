@@ -10,6 +10,11 @@
     <body>
         <h1>筑波大学周辺のバ先検索</h1>
 
+        <form action="/api" method="post">
+            <textarea name="apiKey" rows="1" cols="60" placeholder= {{placeholder}} ></textarea>
+            <br />
+            <input type="submit" value={{value}} />
+        </form>
         <p>
             筑波大学周辺のバ先を検索できるアプリです。
         </p>
@@ -26,5 +31,6 @@
             </div>
         </div>
         <script src="static/js/load.js"></script>
+        <script src="static/js/api_get.js"></script>
     </body>
 </html>

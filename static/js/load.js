@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $("#myButton").click(function() {
-        $("#overlay").fadeIn(300);　
+        $("#overlay").fadeIn(300);
         $.ajax({
             type: "POST",
             url: "/query",
