@@ -1,1 +1,32 @@
 #初期画面
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>筑波大学周辺のバ先検索</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="static/css/load.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <h1>筑波大学周辺のバ先検索</h1>
+
+        <p>
+            筑波大学周辺のバ先を検索できるアプリです。
+        </p>
+
+        <form action="/query" method="post">
+            <textarea name="prompt_text" rows="5" cols="64" placeholder="プロンプトを入れてください" ></textarea>
+            <br />
+            <input id="myButton" type="submit" value="送信" />
+        </form>
+
+        <div id="overlay">
+            <div class="cv-spinner">
+                <span class="spinner"></span>
+            </div>
+        </div>
+        <script src="static/js/gpt_load.js"></script>
+    </body>
+</html>
