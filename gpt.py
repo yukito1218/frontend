@@ -4,6 +4,8 @@ from flask import *
 import requests
 
 app = Flask(__name__)
+
+variable = "Hello, World!"
 app.secret_key = 'api_key'
 
 # チャットGPTに質問する関数
@@ -25,23 +27,22 @@ def query_chatgpt(prompt, apiKey):
     rj = response.json()
     return rj["choices"][0]["message"]["content"]
 
-@app.route("/", methods=["GET"])
+@app.route('/', methods=['GET'])
 def index():
-    return render_template("index.html",placeholder="OPENAIのAPIKEYを入れてください",value="登録")
+    return render_template('index.html', placeholder="OPENAIのAPIKEYを入れてください", value="登録")
 
-@app.route("/api", methods=["POST"])
+@app.route("/", methods=["POST"])
 def api():
     session["apiKey"] = request.form["apiKey"]
     return render_template("index.html",placeholder=session["apiKey"],value="登録済")
 
-@app.route("/query", methods=["POST"])
-def query():
+@app.route('/get_variable', methods=["POST"])
+def get_variable():
     apiKey = session["apiKey"]
-    prompt = request.form["prompt_text"]
+    message = request.json.get('message')
+    prompt = message
     ans = query_chatgpt(prompt, apiKey)
-    return render_template("answer.html", answer=ans)
+    return jsonify({'variable': ans})
 
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)

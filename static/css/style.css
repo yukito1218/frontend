@@ -1,0 +1,129 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* API form */
+.api-form {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+.api-form textarea {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.api-button {
+  padding: 5px 10px;
+  margin-left: 10px;
+  border: none;
+  background-color: #128c7e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.5s linear;
+}
+
+.api-button:hover {
+  cursor: pointer;
+  background-color: #0b5148;
+  transition: background-color 0.3s linear;
+}
+
+/* Chat container */
+.chat-container {
+  width: 400px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* Header */
+.chat-header {
+  background-color: #075e54;
+  color: #fff;
+  padding: 10px;
+}
+
+.chat-header h2 {
+  font-size: 18px;
+}
+
+/* Message list */
+.message-list {
+  height: 300px;
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+
+.message .sender {
+  font-weight: bold;
+  text-align: right;
+}
+
+.message .content {
+  background-color: #ece5dd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 0 0 auto;
+  width: fit-content;
+  display: block;
+}
+.answer {
+  margin-bottom: 10px;
+}
+
+.answer .sender {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.answer .content {
+  background-color: #ece5dd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+/* Input area */
+.input-container {
+  display: flex;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+.message-input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.send-button {
+  padding: 5px 10px;
+  margin-left: 10px;
+  border: none;
+  background-color: #128c7e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.5s linear;
+}
+
+.send-button:hover {
+  cursor: pointer;
+  background-color: #0b5148;
+  transition: background-color 0.3s linear;
+}
